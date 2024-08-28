@@ -1,0 +1,6 @@
+#!/bin/zsh
+core-docker-login --disable-browser-popup "$@" | tee >(grep --line-buffered "https://login.microsoftonline" | while read -r line; do
+    open -g "$line" &  
+    break
+done)
+ 
